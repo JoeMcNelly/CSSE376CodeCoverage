@@ -12,4 +12,15 @@ public abstract class IDatabase {
 
 	public abstract String getRoomOccupant(int roomNumber);
 
+	public List<String> getRooms() {
+		// TODO Auto-generated method stub
+		return Rooms;
+	}
+
+	public List<String> getPassengers() {
+		// TODO Auto-generated method stub
+		return Passengers;
+	}
+	
+
 }

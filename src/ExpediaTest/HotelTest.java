@@ -37,6 +37,13 @@ public class HotelTest
 	}
 	
 	@Test
+	public void TestHotelMiles()
+	{
+		Hotel target = new Hotel(1);
+		Assert.assertEquals(0, target.getMiles());
+	}
+	
+	@Test
 	public void TestThatHotelHasCorrectBasePriceForTenDaysStay()
 	{
 		Hotel target = new Hotel(10);
@@ -90,7 +97,7 @@ public class HotelTest
     @Test
     public void TestThatHotelDoesGetRoomCountFromDatabase()
     {
-    	IDatabase mockDB = EasyMock.createStrictMock(IDatabase.class);
+    	IDatabase mockDB = EasyMock.createMock(IDatabase.class);
         List<String> Rooms = new LinkedList<String>();
         for (int i = 0; i < 100; i++)
         {
@@ -98,7 +105,7 @@ public class HotelTest
         }
 
         // FIXME: what is the EasyMock equivalent, if any?
-        EasyMock.expect(mockDB.Rooms.size());
+        EasyMock.expect(mockDB.getRooms()).andReturn(Rooms);
 
         EasyMock.replay(mockDB);
 
